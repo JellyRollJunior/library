@@ -19,6 +19,13 @@ function addBookToLibrary(book) {
     }
 }
 
+function displayLibraryBooks() {
+    for (const book of myLibrary) {
+        let bookCardTemplate = document.querySelector(".card.template").cloneNode(true);
+        document.querySelector(".content").appendChild(bookCardTemplate);
+    }
+}
+
 // Test data
 let book1 = new Book("Test 1", "author 1", 250, true);
 let book2 = new Book("Test 2", "author 2", 250, false);
@@ -26,3 +33,4 @@ let book3 = new Book("Test 3", "author 3", 250, true);
 
 // execution phase
 addBookToLibrary(book1, book2, book3);
+displayLibraryBooks();
