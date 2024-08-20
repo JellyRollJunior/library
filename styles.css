@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  
+  border: 2px solid red;
+}
+
+.header {
+  height: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border: 2px solid black;
+}
+
+.content {
+  width: 500px;
+  height: 200px;
+
+  display: grid;
+
+  border: 2px solid black;
+}
