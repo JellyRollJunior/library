@@ -2,6 +2,8 @@
 *::before,
 *::after {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .wrapper {
@@ -17,15 +19,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   border: 2px solid black;
 }
 
 .content {
-  width: 500px;
-  height: 200px;
+  width: 600px;
+  height: 500px;
 
   display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(3, 250px);
 
   border: 2px solid black;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  gap: 8px;
+  border: 2px solid green;
 }
