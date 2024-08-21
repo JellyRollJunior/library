@@ -21,19 +21,22 @@ function addBookToLibrary(book) {
     }
 }
 
-function displayLibraryBooks() {
+function displayLibraryBook(book) {
+    let bookCardTemplate = document
+        .querySelector(".card.template")
+        .cloneNode(true);
+    bookCardTemplate.querySelector(".title").textContent = book.title;
+    bookCardTemplate.querySelector(".author").textContent = book.author;
+    bookCardTemplate.querySelector(".page-count").textContent = book.pages;
+    if (book.haveRead) {
+        bookCardTemplate.querySelector(".have-read").textContent = "Have read";
+    }
+    document.querySelector(".content").appendChild(bookCardTemplate);
+}
+
+function displayAllLibraryBooks() {
     for (const book of myLibrary) {
-        let bookCardTemplate = document
-            .querySelector(".card.template")
-            .cloneNode(true);
-        bookCardTemplate.querySelector(".title").textContent = book.title;
-        bookCardTemplate.querySelector(".author").textContent = book.author;
-        bookCardTemplate.querySelector(".page-count").textContent = book.pages;
-        if (book.haveRead) {
-            bookCardTemplate.querySelector(".have-read").textContent =
-                "Have read";
-        }
-        document.querySelector(".content").appendChild(bookCardTemplate);
+        displayLibraryBook(book);
     }
 }
 
@@ -70,7 +73,7 @@ function handleClickConfirmButton() {
         event.preventDefault();
         addBookToLibrary(createBookFromDialog());
         dialog.close();
-    })
+    });
 }
 
 // Test data
@@ -80,7 +83,7 @@ let book3 = new Book("yaha ururururur", "usagi", 450, true);
 
 // execution phase
 addBookToLibrary(book1, book2, book3);
-displayLibraryBooks();
+displayAllLibraryBooks();
 handleClickAddNewBookButton();
-handleClickCloseDialogButton()
+handleClickCloseDialogButton();
 handleClickConfirmButton();
