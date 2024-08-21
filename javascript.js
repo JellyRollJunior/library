@@ -72,8 +72,9 @@ function handleClickConfirmButton() {
     confirmButton.addEventListener("click", (event) => {
         event.preventDefault();
         addBookToLibrary(createBookFromDialog());
-        displayLibraryBook(myLibrary[myLibrary.length - 1]);
+        document.querySelector("form").reset();
         dialog.close();
+        displayLibraryBook(myLibrary[myLibrary.length - 1]);
     });
 }
 
