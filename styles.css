@@ -56,7 +56,7 @@ dialog {
   padding: 1rem;
 }
 
-dialog > div {
+form {
   display: flex;
   flex-direction: column;
   gap: 4px;
