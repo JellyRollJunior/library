@@ -23,6 +23,14 @@
   border: 2px solid black;
 }
 
+button {
+  height: 32px;
+  width: 100%;
+  margin: 4px 0;
+  background-color: white;
+  border: 2px solid black;
+}
+
 .content {
   width: 600px;
   height: 500px;
