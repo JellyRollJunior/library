@@ -37,6 +37,23 @@ function displayLibraryBooks() {
     }
 }
 
+function handleClickAddNewBookButton() {
+    const dialog = document.querySelector("dialog");
+    let newBookButton = document.querySelector("#new-book-btn");
+    newBookButton.addEventListener("click", (event) => {
+        dialog.showModal();
+        console.log("pog");
+    });
+}
+
+function handleClickCloseDialogButton() {
+    const dialog = document.querySelector("dialog");
+    const closeDialogButton = document.querySelector("#close-dialog-btn");
+    closeDialogButton.addEventListener("click", () => {
+        dialog.close();
+    });
+}
+
 // Test data
 let book1 = new Book("Bao bao number 1", "Me", 5000, true);
 let book2 = new Book("u uwawa uwa", "Chiikawa", 250, false);
@@ -45,3 +62,5 @@ let book3 = new Book("yaha ururururur", "usagi", 450, true);
 // execution phase
 addBookToLibrary(book1, book2, book3);
 displayLibraryBooks();
+handleClickAddNewBookButton();
+handleClickCloseDialogButton()
