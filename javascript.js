@@ -37,6 +37,15 @@ function displayLibraryBooks() {
     }
 }
 
+function createBookFromDialog() {
+    let title = document.querySelector("#title-input").value;
+    let author = document.querySelector("#author-input").value;
+    let pages = document.querySelector("#page-count-input").value;
+    let haveRead = document.querySelector("#read-checkbox").checked;
+    return new Book(title, author, pages, haveRead);
+}
+
+/* Event listeners */
 function handleClickAddNewBookButton() {
     const dialog = document.querySelector("dialog");
     let newBookButton = document.querySelector("#new-book-btn");
@@ -59,6 +68,7 @@ function handleClickConfirmButton() {
     const confirmButton = document.querySelector(`button[type="submit"`);
     confirmButton.addEventListener("click", (event) => {
         event.preventDefault();
+        addBookToLibrary(createBookFromDialog());
         dialog.close();
     })
 }
