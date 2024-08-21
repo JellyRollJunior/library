@@ -54,6 +54,15 @@ function handleClickCloseDialogButton() {
     });
 }
 
+function handleClickConfirmButton() {
+    const dialog = document.querySelector("dialog");
+    const confirmButton = document.querySelector(`button[type="submit"`);
+    confirmButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        dialog.close();
+    })
+}
+
 // Test data
 let book1 = new Book("Bao bao number 1", "Me", 5000, true);
 let book2 = new Book("u uwawa uwa", "Chiikawa", 250, false);
@@ -64,3 +73,4 @@ addBookToLibrary(book1, book2, book3);
 displayLibraryBooks();
 handleClickAddNewBookButton();
 handleClickCloseDialogButton()
+handleClickConfirmButton();
