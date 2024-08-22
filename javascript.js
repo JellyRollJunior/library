@@ -21,10 +21,11 @@ function addBookToLibrary(book) {
     }
 }
 
-function displayLibraryBook(book) {
+function displayLibraryBook(book, index) {
     let bookCardTemplate = document
         .querySelector(".templates > .card")
         .cloneNode(true);
+    bookCardTemplate.setAttribute("data-library-index", index);
     bookCardTemplate.querySelector(".title").textContent = book.title;
     bookCardTemplate.querySelector(".author").textContent = book.author;
     bookCardTemplate.querySelector(".page-count").textContent = book.pages;
@@ -35,8 +36,8 @@ function displayLibraryBook(book) {
 }
 
 function displayAllLibraryBooks() {
-    for (const book of myLibrary) {
-        displayLibraryBook(book);
+    for (let i = 0; i < myLibrary.length; i++) {
+        displayLibraryBook(myLibrary[i], i);
     }
 }
 
@@ -74,7 +75,8 @@ function handleClickConfirmButton() {
         addBookToLibrary(createBookFromDialog());
         document.querySelector("form").reset();
         dialog.close();
-        displayLibraryBook(myLibrary[myLibrary.length - 1]);
+        let newestBookIndex = myLibrary.length - 1;
+        displayLibraryBook(myLibrary[newestBookIndex], newestBookIndex);
     });
 }
 
