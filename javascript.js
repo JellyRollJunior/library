@@ -92,22 +92,20 @@ function handleClickConfirmButton() {
     });
 }
 
-function handleClickRemoveButton() {
+function handleClickCardButtons() {
     const content = document.querySelector(".content");
     content.addEventListener("click", (event) => {
         // Remove book card from myLibrary
         const target = event.target;
+        const targetCardLibraryIndex = target.closest(".card").dataset.libraryIndex;
         switch (target.classList[0]) {
             case "remove-btn":
-                // Remove book from library
-                const removeIndex = target.parentElement.dataset.libraryIndex;
-                myLibrary.splice(removeIndex, 1);
+                myLibrary.splice(targetCardLibraryIndex, 1);
                 clearBookDisplay();
                 displayAllLibraryBooks();
                 break;
             case "toggle-read-btn":
-                const toggleIndex = target.parentElement.dataset.libraryIndex;
-                myLibrary[toggleIndex].toggleReadStatus();
+                myLibrary[targetCardLibraryIndex].toggleReadStatus();
                 clearBookDisplay();
                 displayAllLibraryBooks();
                 break;
@@ -126,4 +124,4 @@ displayAllLibraryBooks();
 handleClickAddNewBookButton();
 handleClickCloseDialogButton();
 handleClickConfirmButton();
-handleClickRemoveButton();
+handleClickCardButtons();
