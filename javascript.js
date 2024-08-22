@@ -83,10 +83,21 @@ function handleClickConfirmButton() {
 function handleClickRemoveButton() {
     const content = document.querySelector(".content");
     content.addEventListener("click", (event) => {
-        let target = event.target;
+        // Remove book card from myLibrary
+        const target = event.target;
         switch (target.classList[0]) {
             case "remove-btn":
-                target.parentElement.remove();
+                // Remove book from library
+                const removeIndex = target.parentElement.dataset.libraryIndex;
+                myLibrary.splice(removeIndex, 1);
+                // Remove all cards from display
+                const displayedBooks =
+                    document.querySelectorAll(".content > .card");
+                for (const bookCard of displayedBooks) {
+                    bookCard.remove();
+                }
+                // Rebuild display
+                displayAllLibraryBooks();
                 break;
         }
     });
