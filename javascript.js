@@ -1,19 +1,24 @@
 const myLibrary = [];
 
-function Book(title, author, pages, haveRead) {
+function Book(title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.haveRead = haveRead;
+    this.readStatus = readStatus;
 }
 
 Book.prototype.info = function () {
     let bookInformation = `${this.title} by ${this.author}, ${this.pages} pages, `;
-    bookInformation = this.haveRead
+    bookInformation = this.readStatus
         ? bookInformation + "have read"
         : bookInformation + "not read yet";
     return bookInformation;
 };
+
+function toggleReadStatus(bookIndex) {
+    let book = myLibrary[bookIndex];
+    book.readStatus = !book.readStatus;
+}
 
 function addBookToLibrary(book) {
     for (const book of arguments) {
@@ -29,8 +34,8 @@ function displayLibraryBook(book, index) {
     bookCardTemplate.querySelector(".title").textContent = book.title;
     bookCardTemplate.querySelector(".author").textContent = book.author;
     bookCardTemplate.querySelector(".page-count").textContent = book.pages;
-    if (book.haveRead) {
-        bookCardTemplate.querySelector(".have-read").textContent = "Have read";
+    if (book.readStatus) {
+        bookCardTemplate.querySelector(".have-read").textContent = "Already read";
     }
     document.querySelector(".content").appendChild(bookCardTemplate);
 }
@@ -45,8 +50,8 @@ function createBookFromDialog() {
     let title = document.querySelector("#title-input").value;
     let author = document.querySelector("#author-input").value;
     let pages = document.querySelector("#page-count-input").value;
-    let haveRead = document.querySelector("#read-checkbox").checked;
-    return new Book(title, author, pages, haveRead);
+    let readStatus = document.querySelector("#read-checkbox").checked;
+    return new Book(title, author, pages, readStatus);
 }
 
 /* Event listeners */
