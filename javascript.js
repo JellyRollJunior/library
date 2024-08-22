@@ -15,9 +15,8 @@ Book.prototype.info = function () {
     return bookInformation;
 };
 
-function toggleReadStatus(bookIndex) {
-    let book = myLibrary[bookIndex];
-    book.readStatus = !book.readStatus;
+Book.prototype.toggleReadStatus = function () {
+    this.readStatus = !this.readStatus;
 }
 
 function addBookToLibrary(book) {
@@ -108,7 +107,7 @@ function handleClickRemoveButton() {
                 break;
             case "toggle-read-btn":
                 const toggleIndex = target.parentElement.dataset.libraryIndex;
-                toggleReadStatus(toggleIndex);
+                myLibrary[toggleIndex].toggleReadStatus();
                 clearBookDisplay();
                 displayAllLibraryBooks();
                 break;
