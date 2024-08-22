@@ -78,6 +78,13 @@ function handleClickConfirmButton() {
     });
 }
 
+function handleClickRemoveButton() {
+    const removeButton = document.querySelector(".card button");
+    removeButton.addEventListener("click", (event) => {
+
+    });
+}
+
 // Test data
 let book1 = new Book("Bao bao number 1", "Me", 5000, true);
 let book2 = new Book("u uwawa uwa", "Chiikawa", 250, false);
@@ -89,3 +96,4 @@ displayAllLibraryBooks();
 handleClickAddNewBookButton();
 handleClickCloseDialogButton();
 handleClickConfirmButton();
+handleClickRemoveButton();
