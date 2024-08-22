@@ -9,8 +9,6 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  
-  border: 2px solid red;
 }
 
 .header {
@@ -32,22 +30,30 @@
 }
 
 .content {
-  width: 600px;
-  height: 500px;
+  --card-width: 200px;
+  --card-height: 250px;
+  --card-spacing: 14px;
+  max-width: 850px;
+  max-height: 850px;
+  padding: var(--card-spacing);
 
   display: grid;
-  grid-template-columns: repeat(3, 200px);
-  grid-template-rows: repeat(3, 250px);
+  grid-template-columns: repeat(3, var(--card-width));
+  grid-template-rows: repeat(2, var(--card-height));
+  gap: var(--card-spacing);
 
   border: 2px solid black;
 }
 
 .card {
+  width: var(--card-width);
+  height: var(--card-height);
   display: flex;
   flex-direction: column;
 
   text-align: center;
   gap: 8px;
+  border-radius: 8px;
   border: 2px solid green;
 }
 
