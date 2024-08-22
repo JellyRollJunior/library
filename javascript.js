@@ -23,7 +23,7 @@ function addBookToLibrary(book) {
 
 function displayLibraryBook(book) {
     let bookCardTemplate = document
-        .querySelector(".card.template")
+        .querySelector(".templates > .card")
         .cloneNode(true);
     bookCardTemplate.querySelector(".title").textContent = book.title;
     bookCardTemplate.querySelector(".author").textContent = book.author;
