@@ -48,18 +48,31 @@
 .card {
   width: var(--card-width);
   height: var(--card-height);
+  text-align: center;
+  border-radius: 8px;
+  padding: 8px 0;
+
   display: flex;
   flex-direction: column;
-
-  text-align: center;
+  justify-content: space-around;
   gap: 8px;
-  border-radius: 8px;
+
   border: 2px solid green;
+}
+
+hr {
+  margin-top: 3px;
 }
 
 dialog {
   margin: auto;
   padding: 1rem;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
 }
 
 form {
