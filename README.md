@@ -2,4 +2,6 @@
 
 # Learning outcomes
 - Dialogs
-- .cloneNode with templates!
+- .cloneNode and templates!
+- Data attributes
+- removing nodes
