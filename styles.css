@@ -61,18 +61,24 @@
 }
 
 hr {
-  margin-top: 3px;
+  margin-top: 8px;
 }
 
-dialog {
-  margin: auto;
-  padding: 1rem;
+.buttons {
+  padding: 0 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 button {
   display: block;
   width: 100%;
-  margin-top: 8px;
+}
+
+dialog {
+  margin: auto;
+  padding: 1rem;
 }
 
 form {
