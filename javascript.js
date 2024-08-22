@@ -106,6 +106,12 @@ function handleClickRemoveButton() {
                 clearBookDisplay();
                 displayAllLibraryBooks();
                 break;
+            case "toggle-read-btn":
+                const toggleIndex = target.parentElement.dataset.libraryIndex;
+                toggleReadStatus(toggleIndex);
+                clearBookDisplay();
+                displayAllLibraryBooks();
+                break;
         }
     });
 }
