@@ -81,9 +81,14 @@ function handleClickConfirmButton() {
 }
 
 function handleClickRemoveButton() {
-    const removeButton = document.querySelector(".card button");
-    removeButton.addEventListener("click", (event) => {
-
+    const content = document.querySelector(".content");
+    content.addEventListener("click", (event) => {
+        let target = event.target;
+        switch (target.classList[0]) {
+            case "remove-btn":
+                target.parentElement.remove();
+                break;
+        }
     });
 }
 
