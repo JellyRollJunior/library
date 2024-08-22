@@ -35,7 +35,8 @@ function displayLibraryBook(book, index) {
     bookCardTemplate.querySelector(".author").textContent = book.author;
     bookCardTemplate.querySelector(".page-count").textContent = book.pages;
     if (book.readStatus) {
-        bookCardTemplate.querySelector(".have-read").textContent = "Already read";
+        bookCardTemplate.querySelector(".have-read").textContent =
+            "Already read";
     }
     document.querySelector(".content").appendChild(bookCardTemplate);
 }
@@ -52,6 +53,13 @@ function createBookFromDialog() {
     let pages = document.querySelector("#page-count-input").value;
     let readStatus = document.querySelector("#read-checkbox").checked;
     return new Book(title, author, pages, readStatus);
+}
+
+function clearBookDisplay() {
+    const displayedBooks = document.querySelectorAll(".content > .card");
+    for (const bookCard of displayedBooks) {
+        bookCard.remove();
+    }
 }
 
 /* Event listeners */
@@ -95,13 +103,7 @@ function handleClickRemoveButton() {
                 // Remove book from library
                 const removeIndex = target.parentElement.dataset.libraryIndex;
                 myLibrary.splice(removeIndex, 1);
-                // Remove all cards from display
-                const displayedBooks =
-                    document.querySelectorAll(".content > .card");
-                for (const bookCard of displayedBooks) {
-                    bookCard.remove();
-                }
-                // Rebuild display
+                clearBookDisplay();
                 displayAllLibraryBooks();
                 break;
         }
