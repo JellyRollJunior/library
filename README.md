@@ -4,6 +4,7 @@
 - Add book
 - Remove book
 - Mark book as read / unread
+- NOTE: I got the modal background from MDN
 
 # Learning outcomes
 - My first project removing and adding elements to the DOM. Very neato
