@@ -7,19 +7,19 @@ class Book {
         this.pages = pages;
         this.readStatus = readStatus;
     }
+
+    info = () => {
+        let bookInformation = `${this.title} by ${this.author}, ${this.pages} pages, `;
+        bookInformation = this.readStatus
+            ? bookInformation + "have read"
+            : bookInformation + "not read yet";
+        return bookInformation;
+    }
+
+    toggleReadStatus = () => {
+        this.readStatus = !this.readStatus;
+    }
 }
-
-Book.prototype.info = function () {
-    let bookInformation = `${this.title} by ${this.author}, ${this.pages} pages, `;
-    bookInformation = this.readStatus
-        ? bookInformation + "have read"
-        : bookInformation + "not read yet";
-    return bookInformation;
-};
-
-Book.prototype.toggleReadStatus = function () {
-    this.readStatus = !this.readStatus;
-};
 
 function addBookToLibrary(book) {
     for (const book of arguments) {
