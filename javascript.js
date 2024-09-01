@@ -1,10 +1,12 @@
 const myLibrary = [];
 
-function Book(title, author, pages, readStatus) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.readStatus = readStatus;
+class Book {
+    constructor(title, author, pages, readStatus) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+    }
 }
 
 Book.prototype.info = function () {
@@ -17,7 +19,7 @@ Book.prototype.info = function () {
 
 Book.prototype.toggleReadStatus = function () {
     this.readStatus = !this.readStatus;
-}
+};
 
 function addBookToLibrary(book) {
     for (const book of arguments) {
@@ -97,7 +99,8 @@ function handleClickCardButtons() {
     content.addEventListener("click", (event) => {
         // Remove book card from myLibrary
         const target = event.target;
-        const targetCardLibraryIndex = target.closest(".card").dataset.libraryIndex;
+        const targetCardLibraryIndex =
+            target.closest(".card").dataset.libraryIndex;
         switch (target.classList[0]) {
             case "remove-btn":
                 myLibrary.splice(targetCardLibraryIndex, 1);
