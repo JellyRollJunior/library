@@ -17,3 +17,7 @@
 #### Things to add later
 - dialog form input validation
 - labels for card data
+
+#### 09/01/2024 Update
+- [Lesson link](https://www.theodinproject.com/lessons/node-path-javascript-classes)
+- Change Book object constructor into a class
