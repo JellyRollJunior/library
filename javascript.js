@@ -134,24 +134,30 @@ function validateText(input) {
 title.addEventListener('input', (event) => {
     validateText(title);
 })
+validateText(title);
+
 
 author.addEventListener('input', (event) => {
     validateText(author);
 })
+validateText(author);
 
 function validateNumber(input) {
-    if (input.validity.valid) {
+    if (input.value != '' && input.value >= 0) {
         input.setCustomValidity('');
+    } else if (input.validity.valueMissing) {
+        input.setCustomValidity('Please enter a value');
     } else if (input.validity.typeMismatch) {
         input.setCustomValidity('Please enter an integer');
     } else if (input.validity.rangeUnderflow) {
         input.setCustomValidity('Please enter a number greater than 0');
-    }
+    } 
 }
 
 pages.addEventListener('input', (event) => {
     validateNumber(pages);
 })
+validateNumber(pages);
 
 // Test data
 let book1 = new Book("Bao bao number 1", "Me", 5000, true);
