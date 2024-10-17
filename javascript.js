@@ -14,11 +14,11 @@ class Book {
             ? bookInformation + "have read"
             : bookInformation + "not read yet";
         return bookInformation;
-    }
+    };
 
     toggleReadStatus = () => {
         this.readStatus = !this.readStatus;
-    }
+    };
 }
 
 function addBookToLibrary(book) {
