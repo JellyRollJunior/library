@@ -81,10 +81,11 @@ function handleClickCloseDialogButton() {
     });
 }
 
-function handleClickConfirmButton() {
+function handleSubmitNewBook() {
     const dialog = document.querySelector("dialog");
-    const confirmButton = document.querySelector(`button[type="submit"`);
-    confirmButton.addEventListener("click", (event) => {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+        // validate input
         event.preventDefault();
         addBookToLibrary(createBookFromDialog());
         document.querySelector("form").reset();
@@ -116,6 +117,17 @@ function handleClickCardButtons() {
     });
 }
 
+// function validateNewBookForm() {
+//     const title = document.querySelector("#title-input");
+//     const author = document.querySelector("#author-input");
+//     const pages = document.querySelector("#page-count-input");
+
+// }
+
+// function validateText(input) {
+//     if (input.validity.valueMissing) 
+// }
+
 // Test data
 let book1 = new Book("Bao bao number 1", "Me", 5000, true);
 let book2 = new Book("u uwawa uwa", "Chiikawa", 250, false);
@@ -126,5 +138,5 @@ addBookToLibrary(book1, book2, book3);
 displayAllLibraryBooks();
 handleClickAddNewBookButton();
 handleClickCloseDialogButton();
-handleClickConfirmButton();
+handleSubmitNewBook();
 handleClickCardButtons();
