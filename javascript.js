@@ -117,16 +117,24 @@ function handleClickCardButtons() {
     });
 }
 
-// function validateNewBookForm() {
-//     const title = document.querySelector("#title-input");
-//     const author = document.querySelector("#author-input");
-//     const pages = document.querySelector("#page-count-input");
+const title = document.querySelector("#title-input");
+const author = document.querySelector("#author-input");
+const pages = document.querySelector("#page-count-input");
 
-// }
+function validateText(input) {
+    if (input.validity.valid) {
+        input.setCustomValidity('')
+    } else if (input.validity.valueMissing) {
+        input.setCustomValidity('Please enter a value');
+    } else if (input.validity.tooShort) {
+        input.setCustomValidity('Please enter at least 3 characters');
+    }
+}
 
-// function validateText(input) {
-//     if (input.validity.valueMissing) 
-// }
+title.addEventListener('input', (event) => {
+    const target = event.target;
+    validateText(target);
+})
 
 // Test data
 let book1 = new Book("Bao bao number 1", "Me", 5000, true);
