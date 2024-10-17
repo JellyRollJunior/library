@@ -122,8 +122,8 @@ const author = document.querySelector("#author-input");
 const pages = document.querySelector("#page-count-input");
 
 function validateText(input) {
-    if (input.validity.valid) {
-        input.setCustomValidity('')
+    if (input.value.length >= 3) {
+        input.setCustomValidity('');
     } else if (input.validity.valueMissing) {
         input.setCustomValidity('Please enter a value');
     } else if (input.validity.tooShort) {
@@ -132,8 +132,25 @@ function validateText(input) {
 }
 
 title.addEventListener('input', (event) => {
-    const target = event.target;
-    validateText(target);
+    validateText(title);
+})
+
+author.addEventListener('input', (event) => {
+    validateText(author);
+})
+
+function validateNumber(input) {
+    if (input.validity.valid) {
+        input.setCustomValidity('');
+    } else if (input.validity.typeMismatch) {
+        input.setCustomValidity('Please enter an integer');
+    } else if (input.validity.rangeUnderflow) {
+        input.setCustomValidity('Please enter a number greater than 0');
+    }
+}
+
+pages.addEventListener('input', (event) => {
+    validateNumber(pages);
 })
 
 // Test data
